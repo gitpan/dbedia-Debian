@@ -1,5 +1,6 @@
 Build.PL
 Changes
+examples/CPAN.pm.patch
 examples/dh-make-perl.patch
 lib/dbedia/Debian.pm
 MANIFEST

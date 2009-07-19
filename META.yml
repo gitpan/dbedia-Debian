@@ -1,6 +1,6 @@
 ---
 name: dbedia-Debian
-version: 0.01
+version: 0.02
 author:
   - 'Jozef Kutej <jkutej@cpan.org>'
 abstract: 'helper functions to use L<http://dbedia.org/Debian/>'
@@ -13,9 +13,12 @@ requires:
   File::Basename: 0
   File::Find::Rule: 0
   File::Spec: 0
+  Getopt::Long: 0
   IO::Uncompress::Gunzip: 0
   JSON::XS: 0
   LWP::Simple: 0
+  List::MoreUtils: 0
+  Pod::Usage: 0
 build_requires:
   File::Spec: 0
   Test::Exception: 0
@@ -23,7 +26,7 @@ build_requires:
 provides:
   dbedia::Debian:
     file: lib/dbedia/Debian.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.33
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
