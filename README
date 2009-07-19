@@ -1,0 +1,105 @@
+NAME
+    dbedia::Debian - helper functions to use http://dbedia.org/Debian/
+
+SYNOPSIS
+        use dbedia::Debian;
+        my %provides = %{dbedia::Debian->perl_provides};
+
+DESCRIPTION
+    An experiment.
+
+PROPERTIES
+    none so far
+
+METHODS
+  new()
+
+    Object constructor.
+
+  PERL_PROVIDES_FILENAME()
+
+    returns path to the apt-pm cache file.
+
+  parse_filename($filename)
+
+    Parses .deb filename an returns `($deb_package_name,
+    $deb_package_version, $deb_package_architecture)'.
+
+  perl_provides()
+
+    Returns hash reference with Perl packages as keys and the location as
+    values:
+
+       "Moose::Util" => {
+          "0.87" => {
+             "pm_file" => "/usr/share/perl5/Moose/Util.pm",
+             "filename" => "libmoose-perl_0.87-1_all.deb",
+             "folder" => "pool/main/libm/libmoose-perl"
+          },
+          "0.54" => {
+             "pm_file" => "/usr/share/perl5/Moose/Util.pm",
+             "filename" => "libmoose-perl_0.54-1_all.deb",
+             "folder" => "pool/main/libm/libmoose-perl"
+          },
+          "0.86" => {
+             "pm_file" => "/usr/share/perl5/Moose/Util.pm",
+             "filename" => "libmoose-perl_0.86-1_all.deb",
+             "folder" => "pool/main/libm/libmoose-perl"
+          },
+          "0.80" => {
+             "pm_file" => "/usr/share/perl5/Moose/Util.pm",
+             "filename" => "libmoose-perl_0.80-1_all.deb",
+             "folder" => "pool/main/libm/libmoose-perl"
+          }
+       },
+       ...
+
+  perl_provides_update()
+
+    Refresh PERL_PROVIDES_FILENAME() from http://dbedia.com/Debian/
+
+  find_perl_module_package($module_name, $min_version)
+
+    For given `$module_name' and `$min_version' required looks up a Debian
+    package. Returns Debian package name in scalar context and name +
+    version in array context.
+
+    NOTE: the hash with perl_provides will be loaded and cached first time
+    used and the memory will not be released until program ends.
+
+AUTHOR
+    Jozef Kutej, `<jkutej at cpan.org>'
+
+BUGS
+    Please report any bugs or feature requests to `bug-dbedia-debian at
+    rt.cpan.org', or through the web interface at
+    http://rt.cpan.org/NoAuth/ReportBug.html?Queue=dbedia-Debian. I will be
+    notified, and then you'll automatically be notified of progress on your
+    bug as I make changes.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc dbedia::Debian
+
+    You can also look for information at:
+
+    * RT: CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=dbedia-Debian
+
+    * AnnoCPAN: Annotated CPAN documentation
+        http://annocpan.org/dist/dbedia-Debian
+
+    * CPAN Ratings
+        http://cpanratings.perl.org/d/dbedia-Debian
+
+    * Search CPAN
+        http://search.cpan.org/dist/dbedia-Debian
+
+ACKNOWLEDGEMENTS
+COPYRIGHT & LICENSE
+    Copyright 2009 Jozef Kutej, all rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
